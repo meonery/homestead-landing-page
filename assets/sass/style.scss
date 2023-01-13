@@ -3,8 +3,10 @@
 @import '../fonts/stylesheet.css';
 
 $primary: #9483b2;
+$metro-medium: 'Metropolis Medium';
 
 :root {
+    --bs-primary-rgb: 148, 131, 178;
     --bs-primary-text: #53338c;
     --bs-primary-bg-subtle: #d6cde6;
     --bs-border-color: #e3dee6;
@@ -30,7 +32,9 @@ body {
     &-primary {
         color: $primary !important;
     }
-    
+}
+.fw-bold {
+    font-family: $metro-medium;
 }
 /**--  Accordion --**/
 .accordion {
@@ -56,7 +60,7 @@ body {
                               
 /**--  Buttons --**/ 
 .btn {
-    font-family: 'Metropolis Medium';
+    font-family: $metro-medium;
     font-weight: bold;
     letter-spacing: 1px;
     padding: 10px 50px !important;
@@ -100,15 +104,69 @@ body {
 }
 
 /**--  Navbar --**/ 
-.navbar-brand svg {
-    @include media-breakpoint-between('xs', 'md', $breakpoints: $grid-breakpoints) {
-        width: 150px !important;
+.navbar-brand {
+    svg {
+        @include media-breakpoint-between('xs', 'md', $breakpoints: $grid-breakpoints) {
+            width: 150px !important;
+        }
+    }
+}
+.offcanvas-body {
+    .navbar-nav {
+        .nav-item {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+        }
+    }
+}
+
+/**--  Form --**/ 
+.contact-form {
+    border-color: $white !important;
+    .form-label {
+        font-family: $metro-medium;
+        font-weight: bold;
+        display: block;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+       
+        &.small {
+            font-size: 0.8rem !important;
+        }
+        
+    }
+    input[type=text],
+    input[type=email]{
+        border:0;
+        border-radius: 0;
+        border-bottom: 1px solid $white;
+         background-color: transparent;
+         color: $white !important;
+         &::placeholder {
+            color: $white !important;
+         }
+    }
+    textarea {
+        border-color: $white !important;
+        border-radius: 5px;
+         background-color: transparent;
+         color: $white !important;
+         &::placeholder {
+            color: $white !important;
+         }
+    }
+    .form-select{
+        border-color: $white !important;
+        border-radius: 3px !important;
+         background-color: transparent;
+         color: $white;
     }
 }
 
 /**--  Main content --**/ 
 .hero{
     &-section {
+        background-image: linear-gradient(to right, #060a19,#25254d, #6e5d90 100%);
         ul li {
             font-size: 1.1em;
         }
@@ -135,5 +193,20 @@ body {
     
     &-title {
         font-family: 'Playfair Display', serif !important;
+    }
+}
+.logo-bar {
+    display: flex;
+    flex-direction: row;
+    @include media-breakpoint-between('xs','sm', $breakpoints: $grid-breakpoints) {
+        flex-wrap: wrap;
+        max-width: 100%;
+    }
+    &-item {
+        @include media-breakpoint-between('xs','sm', $breakpoints: $grid-breakpoints) {
+            flex: 0 50% auto;
+            width: 50%;
+            max-width: 50%;
+        }
     }
 }
