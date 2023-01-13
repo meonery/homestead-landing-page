@@ -143,7 +143,7 @@ body {
          background-color: transparent;
          color: $white !important;
          &::placeholder {
-            color: $white !important;
+            color: #ccc !important;
          }
     }
     textarea {
@@ -152,7 +152,7 @@ body {
          background-color: transparent;
          color: $white !important;
          &::placeholder {
-            color: $white !important;
+            color: rgb(240, 240, 240) !important;
          }
     }
     .form-select{
